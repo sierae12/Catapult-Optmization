@@ -1,0 +1,293 @@
+---
+title: 'CATAPULT TO THE MOON'
+subtitle: 'DATA299 Statistical Engineering - FA24 - Project 1'
+author: "Group 4: Siera Edwards, Courtney St Onge, Malachi Washington"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+<center>![](https://willamette.edu/offices/marketing/images/for-download/everyday-user/compass/large/compass-full-color.jpg){width="100"}</center>
+
+------------------------------------------------------------------------
+
+# Introduction
+
+The development of the catapults was a widespread venture.
+Created for use in sieges, these weapons launched heavy objects towards the towns and castles of opponents.
+Two types of catapults emerged, traction and torsion.
+Traction catapults were developed in Ancient China around 700 BCE.
+The earliest known torsion catapults came from Greece, around 400 BCE.
+Over time the Romans improved the catapult and the trebuchet model became popular.
+They were most popular in the middle ages as they were used in Europe for sieging towers, towns, and castles.
+
+Catapults operate by storing energy and then releasing the energy to propel an object forward.
+Energy is most often stored in ropes, strings, or counterweights.
+The energy is built up by creating potential energy in actions such as twisting or stretching while the arm of the catapult is in place.
+When the arm is released, the energy is released and propels the object.
+
+Many factors can impact the trajectory of objects launched.
+The launch angle is very important.
+The amount of tension stored affects how much potential energy will be released when the arm is released.
+Another factor is the mass of the projectile as different masses will travel differently under the same conditions.
+Additionally, shape and size of the object is a factor as some objects experience more drag when traveling through the air.
+One other factor is air conditions as wind, rain, and temperature can affect how far an object will travel through the air.
+
+Which factors affect the trajectory of objects is a thought-provoking question.
+Siera, Malachi, and Courtney designed a study to learn more about catapult trajectory.
+The purpose of this study is to find how these factors affect the launch distance of an object.
+Factors will be adjusted to determine which factor settings in tandem result in the best object propulsion.
+
+```{r eval=FALSE, include=FALSE}
+Talk about...
+
+-   brief history of catapults
+
+-   how catapults work (high-level...no need to get too jargony)
+
+-   factors that can impact the trajectory of the object being launched
+
+-   the purpose of this study (finding the settings that maximize launch distance)
+```
+
+# Methodology
+
+Before beginning the data collection process, the experimental design had to be made.
+The only response variable is the launch distance, while the factors being examined are the angle of the arm, the length of the arm, and the number of twists of tension.
+For each of these factors, two levels were examined: Angle of arm: 0 degrees, 20 degrees.
+Length of arm: Initial (6 inches), 8 inches.
+Number of twists of tension: 1 twist (360 degrees), 1.5 twists (540 degrees).
+
+With these factors, the centerpoint was at 10 degrees of arm angle, 7 inches of arm length, and 1.25 twists of tension.
+This point gives the data more stability since the levels are mainly a high and a low.
+Since this is the first time this experiment was being conducted, there was no control or default combination to test against.
+There was blocking in this experimental design by the person controlling the catapult.
+In this design, there were two people controlling the catapult: Courtney or Siera.
+This allowed more control in the measurement of distances, with the person always measuring these values to be Malachi.
+
+This study was a test of time management, therefore it was necessary to create a fractional factorial design rather than a full factorial design.
+This reduced the number of splits needed to find significant information on the launch distance.
+With the fractional factorial, with a resolution of IV, the design had a sample size of 32.
+With this lower number of splits, time allowed for 4 repetitions of each split to ensure a strong signal for each combination of variables.
+Shown below is the table of the design’s splits.
+
+
+![](images/Screenshot (186).png)
+
+With the data matrix complete, the logistics of the data collection were planned.
+The set up, catapulting, and measurements were all done in a specific manner to achieve the most accurate results.
+Before the repetitions were applied to the fractional design matrix, randomization and blocking were applied.
+This allowed for a better management of time since the 4 repetitions of the same split would be able to be completed one after the other.
+When collecting the data, the catapult operator would set up the catapult and align the measuring tape with the end of the catapult.
+Next, the catapult would be set up to always have the length extender attached to the arm in order to control the weight of the arm.
+Then, the operator would be instructed on how to set up the catapult based on the split being measured.
+With help from the person not measuring and not operating, the operator would bring the catapult arm back to the desired angle, then would release the arm.
+The distance measurer would report the distance launched and write it into the csv file.
+When data collection was complete, the file was used to analyze the factors' impacts on the distance traveled.
+
+While collecting the data, controlling the actual rope tension was noted to be very difficult.
+Even when the number of twists did not change, the tension did not always feel the same.
+To control for more consistent rope tension between repetitions, the catapult operator would reset the rope tension to 0 twists before resetting the rope tension to the desired twists for the split.
+This prevented the tension from getting weaker as the repetitions progressed, which could have introduced unwanted confounding with time.
+Another factor that was difficult to control was how close the ball landed to the measuring tape.
+This made it more difficult to measure the exact distance that the ball traveled.
+To solve part of this problem, Malachi was designated the distance measurer to ensure that the measurements were as consistent as possible.
+Another factor that was uncontrolled was the room the measurements were taken in.
+Two of the splits were measured in Ford 102, however there was not sufficient time to finish our measurements.
+When the group met again, a class was taking place in Ford 102 and the rest of the experiment had to be conducted in the Ford 124.
+To reduce the confounding, the procedure of the catapult set-up and distance measurement were kept as consistent as possible.
+
+```{r eval=FALSE, include=FALSE}
+-   What factors and levels were used in the study?
+
+-   Did you block on any variables?
+
+-   How many replicates did you have per split?
+
+-   What was the response variable?
+
+-   What type of design did you create? (full factorial, fractional factorial, ...)
+
+-   Include a full table of design splits
+
+-   What were the logistics of the experiment? (including randomization)
+
+-   Were there any uncontrollable variables? If so, how did you control other aspects to isolate the effects of the uncontrollable variables?
+
+| Var1 | Var2 | Var3 | ... | Launch Distance (insert units) |
+|------|------|------|-----|--------------------------------|
+|      |      |      |     | --                             |
+|      |      |      |     | --                             |
+|      |      |      |     | --                             |
+|      |      |      |     | --                             |
+|      |      |      |     | --                             |
+|      |      |      |     | --                             |
+|      |      |      |     | --                             |
+|      |      |      |     | --                             |
+|      |      |      |     | --                             |
+|      |      |      |     | --                             |
+|      |      |      |     | --                             |
+|      |      |      |     | --                             |
+
+: Full design matrix \^
+```
+
+# Results
+
+```{r include=FALSE}
+library(tidyverse)
+library(FrF2)
+library(GGally)
+setwd("C:/Users/cocom/OneDrive/Documents/Willamette/Year 3/DATA299/Project 1")
+ds=read_csv("catapult_data.csv")
+
+```
+
+The results of the experiment can be seen below.
+The first graph showcases the main effects of the experiment.
+This graph showcases the distance traveled by the pingpong ball as it was impacted by the three factors.
+There is a large amount of variation in the distance traveled within one factor.
+For example, in the high level of the Angle of the Catapult Arm, the distance ranges from around negative 5 to almost 30 inches.
+However, each factor does have at least one level where the inner-quartile range is relatively small.
+But, there is more information to be learned by graphing and observing the two-way interactions between the factors.
+
+```{r echo=FALSE}
+# Main effects
+ds1=ds %>%
+  select(length, angle, turns, distance) 
+ds1 %>%
+	pivot_longer(
+		length:turns,
+		names_to="exp_factor",
+		values_to="level"
+	) %>%
+	ggplot(aes(x=factor(level),y=`distance`)) +
+	geom_boxplot(fill="thistle",color="black") +
+  labs(x="Factors", y="Distance(Inches)", title="Main Effects on the Distance traveled by a Ping Pong Ball") +
+	facet_grid(.~exp_factor) +
+	theme_bw()
+
+```
+
+Each of the following graphs shows the 2-way interactions between the factors and their impact on the distance traveled. It should be noted that there is only line on each portion of each of the following graphs. This is believed to be caused by a lack of combinations in which both factors being examined had the same value(high or low).
+
+The graph below demonstrates the 2-way interactions between the angle of the catapult arm and the length of the catapult arm and the angle of the catapult arm and the number of turns.
+The angle of the catapult arm has strong interactions with both of the other factors, evidenced by the high value slopes seen on both portions of the graph. 
+Even if the angle remained constant, the impact of the other factors impacted the distance traveled.
+
+```{r echo=FALSE}
+# 2-way interactions
+
+# Angle
+ds1 %>%
+	pivot_longer(
+		c(length,turns),
+		names_to="exp_factor",
+		values_to="level"
+	) %>%
+	ggplot(aes(x=level,y=`distance`,color=factor(angle))) +
+	geom_point() +
+	geom_smooth(method="lm") +
+	facet_grid(.~exp_factor) +
+  labs(title="2-Way Interactions with Angle of Catapult Arm", y="Distance(Inches)", x="Level") +
+	scale_color_manual(values=c("-1"="hotpink2","1"="purple"),name="Angle of Catapult Arm") +
+	theme_bw()
+
+```
+
+The graph below demonstrates the 2-way interactions between length of the catapult arm and the angle of the catapult arm and the length of the catapult arm and the number of turns.
+The length of the catapult arm has strong interactions with both of the other factors, evidenced by the large positive slope seen on both portions of the graph.
+When the length of the catapult arm remains constant, the distance is changing because of the changing levels of the other two factors.
+
+```{r echo=FALSE}
+# Length
+ds1 %>%
+	pivot_longer(
+		c(angle,turns),
+		names_to="exp_factor",
+		values_to="level"
+	) %>%
+	ggplot(aes(x=level,y=`distance`,color=factor(length))) +
+	geom_point() +
+	geom_smooth(method="lm") +
+	facet_grid(.~exp_factor) +
+  labs(title="2-Way Interactions with Length of Catapult Arm", y="Distance(Inches)", x="Level") +
+	scale_color_manual(values=c("-1"="hotpink2","1"="purple"),name="Length of Catapult Arm (Inches)") +
+	theme_bw()
+```
+
+The graph below demonstrates the 2-way interactions between the number of turns and the angle of the catapult arm and the number of turns and the length of the catapult arm.
+There is slight interaction between the number of turns and the other factors, as indicated by the line with a slightly negative slope on both portions of the graph.
+
+```{r echo=FALSE}
+# Turns
+ds1 %>%
+	pivot_longer(
+		c(angle,length),
+		names_to="exp_factor",
+		values_to="level"
+	) %>%
+	ggplot(aes(x=level,y=`distance`,color=factor(turns))) +
+	geom_point() +
+	geom_smooth(method="lm") +
+	facet_grid(.~exp_factor) +
+  labs(title="2-Way Interactions with Number of Turns", y="Distance(Inches)") +
+	scale_color_manual(values=c("-1"="hotpink2","1"="purple"),name="Number of Turns") +
+	theme_bw()
+```
+
+The model that was fit utilized the following equation:
+
+\$\$\$\$$Distance=b_0+b_1{Length}+b_2{Angle}+b_3{Turns}+b_4{Length}*{Angle}+b_5{Length}*{Turns}+b_6{Angle}*{Turns}$\$\$
+
+
+```{r include=FALSE}
+library(broom)
+mod=lm(distance ~ (angle+length+turns)^2, data=ds)
+
+summary(mod)
+```
+
+```{r echo=FALSE}
+tidy(mod) %>%
+	arrange(p.value)  
+# ^ cleaner tibblized output
+```
+
+```{r include=FALSE}
+# Analysis of Variance (ANOVA)
+tidy(aov(mod))
+```
+
+Since all of the p-values are less than 0.05, all three of the factors(length of catapult arm, angle of catapult arm, and number of turns) are significant.
+However, the smallest p-value belongs to the number of turns, which indicates that it is extremely significant and has a large impact on the distance that the ball travels.
+
+```{r eval=FALSE, include=FALSE}
+
+-   Include some data viz for all of your factors. Make sure your graphs are clearly labeled and legible. 2-3 graphs max.
+
+-   Fit a regression model that's appropriate for your experimental design. Discuss the model that you fit and what it's telling you. I've provided sample LaTex for an equation that you can simply adapt with your variable names.
+
+-   You may include a screenshot of your model output in the report, but make sure you explain what it's telling you (ex: "the p-values indicate that these variables are significant...")
+
+    $\text{Distance}=b_0+b_1\text{Var1}+b_1\text{Var2}+...}$
+```
+
+# Conclusion
+
+The most dominant factors were the number of turns and the length of the catapult arm.
+The angle of the catapult arm did not have as much of an impact.
+Utilizing the model for prediction, the recommended settings to maximize the distance were a 20 \degree angle, an additional 2 inches of length for the catapult arm, and 1.5 turns. 
+If the experiment was to be done in the future, it would be beneficial to utilize a full factorial experimental design, use more replicates or more levels in order to derive more precise results.
+
+```{r eval=FALSE, include=FALSE}
+Summarize your results
+
+-   Which factors were most dominant?
+
+-   What were the recommended settings to maximize the distance?
+
+List any limitations of the study.
+```
+

@@ -1,2 +1,4 @@
-# Projects
-This repository is meant to showcase programming projects that I have done for personal growth or for courses. 
+# Catapult Optimization Project
+This was the first project I completed for my Statistical Engineering course. It was a group project where we were first tasked with building a small, wooden catapult. Then, we were charged with optimizing the catapult so that a ping pong ball traveled the furthest distance possible with it. To do this, we created a fractional factorial design matrix and tested each combination of settings, recording the data as we went. In the end we reported the optimal settings for the catapult to launch the ball the furthest, along with improvements that could be made to this experiment in the future. 
+
+This project gave me a real life situation to apply optimization and design matrix practices to. I also gained valuable skills collecting and analyzing data in a group setting rather than individually. 
